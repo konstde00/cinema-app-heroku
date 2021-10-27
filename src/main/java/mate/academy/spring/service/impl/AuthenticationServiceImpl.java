@@ -1,6 +1,5 @@
 package mate.academy.spring.service.impl;
 
-import java.util.HashSet;
 import mate.academy.spring.model.RoleName;
 import mate.academy.spring.model.User;
 import mate.academy.spring.service.AuthenticationService;
@@ -28,7 +27,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        user.setRoles(new HashSet<>());
         user.getRoles().add(roleService.getRoleByName(RoleName.USER.toString()));
         userService.add(user);
         shoppingCartService.registerNewShoppingCart(user);
